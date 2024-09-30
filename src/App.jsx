@@ -4,20 +4,20 @@ import './App.css'
 function App() {
   const [height, setHeight] = useState('')
   const [weight, setWeight] = useState('')
-  const [bmi, setBmi] = useState(null) // Set BMI to null initially
-  const [bmiCategory, setBmiCategory] = useState('') // State to hold the BMI category
-  const [photo, setPhoto] = useState('') // State to hold the photo URL
+  const [bmi, setBmi] = useState(null) 
+  const [bmiCategory, setBmiCategory] = useState('')  
+  const [photo, setPhoto] = useState('') 
 
   const calculate = () => {
     const heightInMeters = height / 100
-    const calculatedBmi = (weight / (heightInMeters * heightInMeters)).toFixed(2) // Limit to 2 decimal places
+    const calculatedBmi = (weight / (heightInMeters * heightInMeters)).toFixed(2)   
     let category = ''
     let photo = ''
 
-    // Determine BMI category
+    
     if (calculatedBmi < 18.5) {
       category = 'Underweight'
-      photo = 'https://draxe.com/wp-content/uploads/2017/08/GainWeightFast_Graphic-e1680610940972.jpg' // Use actual image URL
+      photo = 'https://draxe.com/wp-content/uploads/2017/08/GainWeightFast_Graphic-e1680610940972.jpg'  
     } else if (calculatedBmi >= 18.5 && calculatedBmi <= 24.9) {
       category = 'Normal'
       photo = 'https://www.careinsurance.com/cpproject/rhiclfrontend/assets/public/images/bmi-desktop.png'  
@@ -29,12 +29,12 @@ function App() {
       photo = 'https://etimg.etb2bimg.com/photo/101307670.cms'  
     }
 
-    setBmi(calculatedBmi)   // Set BMI state
-    setBmiCategory(category) // Set BMI category state
-    setPhoto(photo)          // Set photo URL
+    setBmi(calculatedBmi)    
+    setBmiCategory(category)  
+    setPhoto(photo)          
   }
 
-  // Function to determine the text color based on BMI category
+  
   const getCategoryColor = () => {
     switch(bmiCategory) {
       case 'Underweight':
